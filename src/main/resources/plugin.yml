@@ -1,0 +1,15 @@
+name: SimpleShop
+version: 1.0
+author: Howaner
+description: Ein Shop Plugin
+depend: [Vault]
+main: de.howaner.SimpleShop.SimpleShopPlugin
+
+commands:
+  shop:
+    usage: /<command>
+    description: Shop oeffnen
+permissions:
+  SimpleShop.use:
+    description: Kann SimpleShop benutzen
+    default: true

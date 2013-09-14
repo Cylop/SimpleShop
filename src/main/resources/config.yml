@@ -1,0 +1,17 @@
+Title: '[Shop]'
+Shop:
+  Essen:
+    Material: APPLE
+    Items:
+    - APPLE/2.5
+    - BREAD/2
+  Erze:
+    Material: IRON_ORE
+    Items:
+    - IRON_BLOCK/100.0
+    - IRON_INGOT/30.2
+  Verkaufen:
+    Material: CHEST
+    Items:
+    - WOOD/20.0
+    - LOG/25.0
