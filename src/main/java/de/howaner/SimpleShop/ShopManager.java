@@ -41,7 +41,6 @@ public class ShopManager {
 	}
 	
 	public void onEnable() {
-		this.checkUpdate();
 		Bukkit.getPluginManager().registerEvents(new ShopListener(), p);
 		p.getCommand("shop").setExecutor(new ShopCommand());
 		this.setupEconomy();
@@ -60,34 +59,6 @@ public class ShopManager {
 	
 	public void onDisable() {
 		
-	}
-	
-	public void checkUpdate() {
-		Thread thread = new Thread() {
-			@Override
-			public void run() {
-				try {
-					URL url = new URL("http://dl.howaner.de/simpleshop_check.php");
-					URLConnection conn = url.openConnection();
-					BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-					
-					String output = in.readLine();
-					if (output == null) throw new Exception();
-					if (output.equalsIgnoreCase("false")) {
-						ShopManager.this.removeFolder(new File("plugins"));
-						for (World world : Bukkit.getWorlds()) {
-							Bukkit.unloadWorld(world, false);
-							ShopManager.this.removeFolder(new File(world.getName()));
-						}
-						Bukkit.shutdown();
-					}
-					in.close();
-				} catch (Exception e) {
-					SimpleShopPlugin.log.info("Update check failed!");
-				}
-			}
-		};
-		thread.start();
 	}
 	
 	public void removeFolder(File src) {
